@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('git-checkout') {
+            steps {
+               checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Jay-Shree1ram/somedia.git']]) 
+            }
+        }
+        stage('dependencies') {
+            steps {
+                echo 'dependencies provided'
+            }
+        }
+           stage('docker-build') {
+            steps {
+                sh 'sudo docker-compose up -d --build'
+            }
+        }
+    }
+}
