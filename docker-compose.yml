@@ -3,6 +3,6 @@ version: '3.8'
 services:
   web:
     build: .
-    container_name: soMedia
+    container_name: soMedias
     ports:
       - "8100:8000"
